@@ -7,21 +7,26 @@
   </head>
   <body>
     <a-scene
-      mindar-image="qr/targets intel-i5.mind"
+      embedded
+      mindar-image="imageTargetSrc:./; autoStart: true"
       color-space="sRGB"
       renderer="colorManagement: true; physicallyCorrectLights: true"
-      vr-mode-ui="enabled: true"
+      vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
     >
+      <a-assets timeout="15000">
+        <a-asset-item id="greatWaveModel" src="./"></a-asset-item>
+      </a-assets>
+
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model
-          rotation="0 100 0"
-          position="0 -1 0"
+        <a-entity
+          gltf-model="#greatWaveModel"
+          rotation="0 180 0"
+          position="0 -2 1"
           scale="1 1 1"
-          src="GRUPO 1/Procesadores/intel-core-i5.gltf">
-        </a-gltf-model>
+        ></a-entity>
       </a-entity>
     </a-scene>
   </body>
